@@ -1,0 +1,9 @@
+# artefatos de execucao dos tutoriais
+.venv/
+output/
+warehouse/
+docker/output/
+docker/warehouse/
+derby.log
+metastore_db/
+spark-warehouse/

@@ -1,0 +1,23 @@
+# Ambiente Spark de desenvolvimento via Docker
+# Sobe um unico container com Spark 3.5.8 + Python 3, pronto para
+# rodar os exercicios deste tutorial (incluindo Iceberg via --packages).
+services:
+  spark:
+    image: apache/spark:3.5.8-python3
+    container_name: spark
+    # root simplifica permissoes de escrita nos volumes (ambiente de estudo)
+    user: root
+    # Mantem o container vivo para voce entrar nele e rodar spark-submit
+    command: ["tail", "-f", "/dev/null"]
+    working_dir: /opt/spark/work-dir
+    ports:
+      - "4040:4040"   # Spark UI da aplicacao em execucao
+    volumes:
+      - ../data:/opt/spark/work-dir/data:ro        # dados de entrada (somente leitura)
+      - ../scripts:/opt/spark/work-dir/scripts     # scripts dos exercicios
+      - ./output:/opt/spark/work-dir/output        # resultados gravados pelo Spark
+      - ./warehouse:/opt/spark/work-dir/warehouse  # tabelas Iceberg
+      - ivy-cache:/root/.ivy2                      # cache do conector Iceberg (Maven)
+
+volumes:
+  ivy-cache:
