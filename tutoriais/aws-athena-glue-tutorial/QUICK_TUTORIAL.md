@@ -76,7 +76,7 @@ aws glue create-table \
         "Name": "produtos",
         "StorageDescriptor": {
             "Location": "s3://'"${BUCKET}"'/data/produtos/",
-            "SerDeInfo": {"SerializationLibrary": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe", "Parameters": {"skip.header.line.count": "1", "field.delim": ","}},
+            "SerdeInfo": {"SerializationLibrary": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe", "Parameters": {"skip.header.line.count": "1", "field.delim": ","}},
             "Columns": [{"Name": "id_produto", "Type": "int"}, {"Name": "nome_produto", "Type": "string"}, {"Name": "categoria", "Type": "string"}, {"Name": "preco", "Type": "double"}]
         }
     }' \
@@ -89,7 +89,7 @@ aws glue create-table \
         "Name": "vendas",
         "StorageDescriptor": {
             "Location": "s3://'"${BUCKET}"'/data/vendas/",
-            "SerDeInfo": {"SerializationLibrary": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe", "Parameters": {"skip.header.line.count": "1", "field.delim": ","}},
+            "SerdeInfo": {"SerializationLibrary": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe", "Parameters": {"skip.header.line.count": "1", "field.delim": ","}},
             "Columns": [{"Name": "id_venda", "Type": "int"}, {"Name": "id_cliente", "Type": "int"}, {"Name": "id_produto", "Type": "int"}, {"Name": "quantidade", "Type": "int"}, {"Name": "data_venda", "Type": "string"}]
         }
     }' \

@@ -110,9 +110,11 @@ aws ec2 describe-security-groups --group-ids $SG_ID \
 
 ### Conectar
 
+Dentro do repositório eEDB-006-tutoriais
+
 ```bash
 MASTER_DNS=$(terraform output -raw master_dns)
-ssh -i ~/Documents/Big\ Data/tutoriais/aws_credenciais/labsuser.pem \
+ssh -i $(pwd)/tutoriais/aws_credenciais/labsuser.pem \
     -o StrictHostKeyChecking=no hadoop@$MASTER_DNS
 ```
 
